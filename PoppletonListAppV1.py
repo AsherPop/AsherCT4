@@ -14,21 +14,31 @@ myList = []
 
 def mainProgram():
     while True:
-        
-        print("Hello there my friend! Lets get working with lists!")
-        print("Choose one of the following options. Type a number ONLY please!")
-        choice = input("""1. Add to list
-2. Return the value at an index position
-3. End Program       """)
-        if choice == "1":
-            addToList()
+        try:
+            print("Hello there my friend! Lets get working with lists!")
+            print("Choose one of the following options. Type a number ONLY please!")                                                            
+            choice = input("""1. Add to list
+    2. Return the value at an index position
+    3. Random Choice
+    4. End Program       """)
+            if choice == "1":
+                addToList()
 
-        elif choice == "2":
-            indexValues
+            elif choice == "2":
+                indexValues()
 
-        elif choice == "3":
-            break
-    #need to add way to exit the program and catch errors made by the user
+            elif choice == "3":
+                randomSearch()
+
+            elif choice == "4":
+                break
+
+            else:
+                print("You did not select an option available, please try again(Just kidding I'm not a robot:) have fun!)")
+
+        except:
+            print("An error ocurred when you tried to complete this action")
+   
 
 
         
