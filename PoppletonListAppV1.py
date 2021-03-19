@@ -10,6 +10,7 @@ program goals:
 import random
 
 myList = []
+jokes = ["A bear walks into a bar and says, 'Give me a whiskey and … cola.' 'Why the big pause?' asks the bartender. The bear shrugged. 'I’m not sure; I was born with them.'"]
 
 
 def mainProgram():
@@ -23,7 +24,8 @@ def mainProgram():
 4. Print contents of list
 5. Random Choice
 6. Linear Search
-7. End Program       """)
+7. Funny Joke(You gotta trust me)
+8. End Program       """)
             if choice == "1":
                 addToList()
 
@@ -41,6 +43,9 @@ def mainProgram():
 
             elif choice == "6":
                 linearSearch()
+
+            elif choice == "7":
+                funnyJoke()
                
 
             else:
@@ -70,6 +75,7 @@ def addABunch():
     print("Your list is now complete!")
         
 
+
 def indexValues():
     indexPos = input("Which index position would you like to view within your list     ")
     print(myList[int(indexPos)])
@@ -85,10 +91,22 @@ def linearSearch():
 
 
 
-
 def randomSearch():
     print("Heres a random value from your list!")
     print(myList[random.randint(0, len(myList)-1)])
+
+
+
+def funnyJoke():
+    response = input("   ")
+    goodJoke = input("Would you really like to hear a joke? y/n    ")
+    if goodJoke == "y":
+        print(joke)
+        
+
+    else:
+        print("Ok then, it is very funny though!")
+
 
 
 
