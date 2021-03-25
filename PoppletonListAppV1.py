@@ -10,6 +10,7 @@ program goals:
 import random
 
 myList = []
+unique_list = []
 jokes = ["A bear walks into a bar and says, 'Give me a whiskey and … cola.' 'Why the big pause?' asks the bartender. The bear shrugged. 'I’m not sure; I was born with them.'"]
 
 
@@ -21,11 +22,12 @@ def mainProgram():
             choice = input("""1. Add to list
 2. Add a bunch of numbers
 3. Return the value at an index position
-4. Print contents of list
-5. Random Choice
-6. Linear Search
-7. Funny Joke(You gotta trust me)
-8. End Program       """)
+4. Sort the list
+5. View the list(sorted or unsorted)
+6. Random Choice
+7. Linear Search
+8. Funny Joke(You gotta trust me)
+9. End Program       """)
             if choice == "1":
                 addToList()
 
@@ -36,15 +38,18 @@ def mainProgram():
                 indexValues()
 
             elif choice == "4":
-                print(myList)
+                sortList(myList)
 
             elif choice == "5":
-                randomSearch()
+                printLists()
 
             elif choice == "6":
-                linearSearch()
+                randomSearch()
 
             elif choice == "7":
+                linearSearch()
+
+            elif choice == "8":
                 funnyJoke()
                
 
@@ -63,6 +68,19 @@ def addToList():
     newItem = input("Please type an integer!    ")
     myList.append(int(newItem))
     print(myList)
+
+
+
+
+def sortList(myList):
+    for x in myList:
+        if x not in unique_list:
+            unique_list.append(x)
+    unique_list.sort()
+    showMe = input("You wanna see your new list? y/n     ")
+    if showMe.lower() == "y":
+        print(unique_list)
+
 
 
 
@@ -90,6 +108,13 @@ def linearSearch():
             print("Your item is at index {}".format(x))
 
 
+"""
+def viewList():
+    listView = input("Your list could be very long are you sure you want to view it without sorting first? y/n     ")
+    if listView == "y":
+        print(myList)
+"""
+
 
 def randomSearch():
     print("Heres a random value from your list!")
@@ -98,7 +123,6 @@ def randomSearch():
 
 
 def funnyJoke():
-    response = input("   ")
     goodJoke = input("Would you really like to hear a joke? y/n    ")
     if goodJoke == "y":
         print(joke)
@@ -107,6 +131,17 @@ def funnyJoke():
     else:
         print("Ok then, it is very funny though!")
 
+
+
+def printLists():
+    if len(unique_list) == 0:
+        print(myList)
+    else:
+        whichList = input("Which list? Sorted or unsorted?")
+        if whichOne.lower() == "sorted":
+            print(unique_list)
+        else:
+            print(myList)
 
 
 
