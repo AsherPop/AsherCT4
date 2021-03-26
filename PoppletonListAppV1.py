@@ -108,13 +108,33 @@ def linearSearch():
             print("Your item is at index {}".format(x))
 
 
+
+def recursiveBinarySearch(unique_list, low, high, x):
+    if high >= low:
+        mid = (high + low) // 2
+        if unique_list[mid] == x:
+            print("Oh, what luck! Your number is at position {}".format(mid))
+        elif unique_list[mid] > x:
+            return recursiveBinarySearch(unique_list, low, mid - 1, x)
+        else:
+            return recursiveBinarySearch(unique_list, low + 1, high, x)
+    else:
+        print("Your number isn't here!")
+
+
+        
+
 """
 def viewList():
-    listView = input("Your list could be very long are you sure you want to view it without sorting first? y/n     ")
+    listView = input("Your list could be very long, are you sure you want to view it without sorting first? y/n     ")
     if listView == "y":
         print(myList)
-"""
 
+    else:
+        print("Alright choose the sorting option this time!!!")
+"""  
+        
+    
 
 def randomSearch():
     print("Heres a random value from your list!")
