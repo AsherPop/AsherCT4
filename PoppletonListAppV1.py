@@ -27,7 +27,9 @@ def mainProgram():
 6. Random Choice
 7. Linear Search
 8. Funny Joke(You gotta trust me)
-9. End Program       """)
+9. Recursive Binary Search
+10. Iterative Binary Search
+11. End Program       """)
             if choice == "1":
                 addToList()
 
@@ -51,7 +53,18 @@ def mainProgram():
 
             elif choice == "8":
                 funnyJoke()
-               
+
+            elif choice == "9":
+                binSearch = input("What number are you looking for?    ")
+                recursiveBinarySearch(unique_list, 0, len(unique_list)-1, int(binSearch))
+
+            elif choice == "10":
+                binSearch = input("What number are you looking for?    ")
+                result = iterativeBinarySearch(unique_list, int(binSearch))
+                if result != -1:
+                    print("Your number is at index position {}".format(result))
+                else:
+                    print("Your number is not found in that list you silly goose!")
 
             else:
                 break
@@ -63,7 +76,6 @@ def mainProgram():
 
 
         
-
 def addToList():
     newItem = input("Please type an integer!    ")
     myList.append(int(newItem))
@@ -120,19 +132,6 @@ def recursiveBinarySearch(unique_list, low, high, x):
             return recursiveBinarySearch(unique_list, low + 1, high, x)
     else:
         print("Your number isn't here!")
-
-
-        
-
-"""
-def viewList():
-    listView = input("Your list could be very long, are you sure you want to view it without sorting first? y/n     ")
-    if listView == "y":
-        print(myList)
-
-    else:
-        print("Alright choose the sorting option this time!!!")
-"""  
         
     
 
