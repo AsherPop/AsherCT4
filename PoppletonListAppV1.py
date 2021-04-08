@@ -11,7 +11,7 @@ import random
 
 myList = []
 unique_list = []
-jokes = ["A bear walks into a bar and says, 'Give me a whiskey and … cola.' 'Why the big pause?' asks the bartender. The bear shrugged. 'I’m not sure; I was born with them.'"]
+joke = ("A bear walks into a bar and says, 'Give me a whiskey and ....... cola.' 'Why the big pause?' asks the bartender. The bear shrugged. 'I’m not sure; I was born with them.'")
 
 
 def mainProgram():
@@ -124,6 +124,7 @@ def linearSearch():
 def recursiveBinarySearch(unique_list, low, high, x):
     if high >= low:
         mid = (high + low) // 2
+
         if unique_list[mid] == x:
             print("Oh, what luck! Your number is at position {}".format(mid))
         elif unique_list[mid] > x:
@@ -132,8 +133,32 @@ def recursiveBinarySearch(unique_list, low, high, x):
             return recursiveBinarySearch(unique_list, low + 1, high, x)
     else:
         print("Your number isn't here!")
-        
+
+
+
+
+def interativeBinarySearch(unique_list, x):
+    low = 0
+    high = len(unique_list) - 1
+    mid = 0
+
+    while low <= high:
+        mid = (high + low) // 2
+
+        if unique_list[mid] < x:
+            low = mid + 1
+
+        elif unique_list[mid] > x:
+            high = mid - 1
+
+        else:
+            return mid
+
+    return -1
+            
     
+
+
 
 def randomSearch():
     print("Heres a random value from your list!")
@@ -157,7 +182,7 @@ def printLists():
         print(myList)
     else:
         whichList = input("Which list? Sorted or unsorted?")
-        if whichOne.lower() == "sorted":
+        if whichList.lower() == "sorted":
             print(unique_list)
         else:
             print(myList)
