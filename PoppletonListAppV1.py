@@ -29,7 +29,8 @@ def mainProgram():
 8. Funny Joke(You gotta trust me)
 9. Recursive Binary Search
 10. Iterative Binary Search
-11. End Program       """)
+11. Clear the Lists
+12. End Program       """)
             if choice == "1":
                 addToList()
 
@@ -66,6 +67,9 @@ def mainProgram():
                 else:
                     print("Your number is not found in that list you silly goose!")
 
+            elif choice == "11":
+                clearList()
+
             else:
                 break
         
@@ -84,6 +88,28 @@ def addToList():
 
 
 
+def clearList():
+    clearList = input("Would you like to clear the list(there are a lot of numbers)? Yes or no?    ")
+    if clearList == "yes":
+        whichList = input("Which list would you like to clear? Sorted, unsorted, or both?     ")
+        if whichList == "sorted":
+            myList.clear()
+            print("Your unsorted list has been cleared!")
+        elif whichList == "unsorted":
+            unique_list.clear()
+            print("Your sorted list has been cleared!")
+        elif whichList == "both":
+            unique_list.clear()
+            myList.clear()
+            print("Both of your lists have been cleared!")
+        else:
+            return
+    else:
+        print("Alright, I won't clear the lists.")
+            
+            
+
+    
 def sortList(myList):
     for x in myList:
         if x not in unique_list:
